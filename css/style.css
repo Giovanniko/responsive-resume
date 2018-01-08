@@ -1,234 +1,327 @@
-body,
-div,
-ul,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  padding: 0;
-  margin: 0;
-  font-family: "Roboto", sans-serif;
+/* BODY
+--------*/
+.stealth {
+    font-family: "play", sans-serif;
+    color: #999;
+    background: url(../images/bg.png);
+    /*#474747 background color, add noise to taste*/
+}
+
+/*HEADER CONTENTS
+-----------------*/
+/*header centering and spacing*/
+
+.center-content {
+    padding: 2.5% 5% 0 5%;
 }
 
 .clear-fix {
-  overflow: auto;
+    overflow: auto;
 }
 
-.education-entry,
-.work-entry,
-.project-entry {
-  padding: 0 5%;
+/*formatting for raised text in header only*/
+/*color #999 inherited from .stealth*/
+
+.raised-font {
+    font-weight: bold;
+    text-shadow: 0px 3px 8px #2a2a2a;
+    padding: 5px;
 }
 
-h1 {
-  font-size: 40px;
-  color: #f5a623;
-  line-height: 48px;
-  display: inline;
+/* h1 */
+.name {
+    display: inline;
 }
 
-h2, {
-  font-weight: bold;
-  font-size: 24px;
-  color: #999;
-  line-height: 29px;
-  padding: 10px;
-}
-
-h3 {
-  font-style: italic;
-  font-size: 20px;
-  color: #999;
-  line-height: 22px;
-}
-
-h4 {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4a4a4a;
-  line-height: 17px;
-}
-
-h2,
-h3,
-h4,
-h5 {
-  padding: 10px 5%;
-}
-
-.date-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  float: left;
-}
-
-.location-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  float: right;
-
-}
-
-p {
-  font-size: 14px;
-  color: #333;
-  line-height: 21px;
-}
-
-a {
-  color: #1199c3;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
-}
-a:hover, a:focus {
-    color: #23527c;
-    text-decoration: underline;
+.top-hr {
+    border-top: 1px solid #999;
 }
 
 .welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
-  line-height: 28px;
-}
-
-#skills-h3 {
-  color: #f5ae23;
-  display: none;
-}
-
-.orange {
-  background-color: #f5ae23;
-}
-
-.orange-text {
-  color: #f5ae23;
-}
-
-.white-text {
-  font-weight: bold;
-  color: #fff;
-}
-
-.gray {
-  background-color: #f3f3f3;
-  padding-bottom: 10px;
-  clear: both;
-}
-
-/* .dark-gray {
-  background-color: #e6e0e0;
-} */
-
-/* TODO: Replace with image later */
-#header {
-  background-color: #484848;
-}
-
-.flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  padding: 10px;
-}
-
-.center-content {
-  padding: 2.5% 5%;
-}
-
-ul {
-  list-style-type: none;
+    font: italic 18px/28px "play";
 }
 
 .biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
-}
-
-img {
-  padding: 10px;
-}
-
-span {
-  padding: 5px;
-}
-
-#lets-connect {
-  text-align: center;
-}
-
-[class*="zocial-"]:before {
-  color: grey;
-  display: inline-block;
-  font-family: 'zocial', sans-serif;
-  text-shadow: 3px 3px 3px #aaa;
-  width: 2em;
-}
-[class*="zocial-"] {
-  color: #337ab7;
-}
-
-/* Media queries to handle various device widths */
-
-@media only screen and (max-width: 1024px) {
-  #lets-connect {
-    margin-top: 5%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #lets-connect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
+    border-radius: 10px;
+    box-shadow: 0 0 1em #999;
+    float: left;
+    margin: 10px;
+    width: 200px;
     display: none;
-  }
 }
 
+.skills-h2 {
+    display: none;
+    font-size: 24px;
+}
+
+/*FLEX ITEMS
+------------*/
+.flex-box {
+/*     display: -webkit-flex; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+
+.flex-item {
+    list-style-type: none;
+    min-width: 200px;
+}
+
+.flex-box.zocial {
+    margin-bottom: 10px;
+}
+
+/*MAIN ARTICLE AND SECTIONS
+---------------------------*/
+/* h2 */
+.embossed-title {
+    color: #222;
+    padding: 30px 5% 15px;
+    margin: 0;
+    text-shadow: 0 2px 3px #555;
+}
+
+/*sunken-style section for each entry*/
+[class*="-entry"] {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    padding: 10px 5%;
+    background: #222;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: rgb(85, 85, 85) 0px 2px 3px;
+}
+
+/*formatting for raised text in entries*/
+[class*="-text"], 
+[class*="-des"], 
+[class*="edu-"], 
+[class*="zocial-"],
+.link {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 14px;
+    color: #555;
+    text-shadow: 0 2px 3px #171717;
+    line-height: 20px;
+    margin: auto;
+}
+
+/*various formatting for placement and spacing*/
+[class*="work-"],
+[class*="proj-"],
+[class*="edu-"] {
+    display: flex;
+    flex: 1 1 100%;
+}
+
+.date-text {
+    display: flex;
+    flex: auto;
+    justify-content: flex-start;
+    float: left;
+}
+
+/*keeps the location text to the far left when wrapped on to new line*/
+.location-text {
+    margin: 0;
+}
+
+/*camera icon for activating modal*/
+.icon {
+    padding: 5px;
+    margin: 5px 0 15px;
+    box-shadow: 0 2px 3px #171717;
+    border-radius: 3px;
+}
+
+.icon:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 3px #ddd;
+}
+
+/* MODALS
+---------*/
+.modal-header,
+.modal-footer {
+    margin: 0 2px;
+}
+
+.modal-title {
+    padding: 10px;
+    width: 85%;
+}
+
+.modal-content {
+    margin: auto;
+}
+
+.modal-body .proj-des{
+    padding-left: 10px;
+    font-family: play;
+    text-shadow: none;
+    color: #999;
+}
+
+.modal-pictures {
+    padding: 5px;
+    max-width: 100%;
+}
+
+.modal-pictures:hover {
+    filter: drop-shadow(4px 4px 4px #ddd);
+    cursor: pointer;
+}
+
+.modal-images {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-column {
+    flex: 25%;
+    max-width: 25%;
+}
+
+/* MAP AREA
+-----------*/
+.flex-column .embossed-title {
+    margin-bottom: 10px;
+}
+
+/*This first div is included to remove problems with the lower right
+ corner of the map div boc not allowing a radius on the border box*/
+
+.gmnoprint.gm-style-cc,
 #map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
+    display: block;
+    height: 100%;
+    margin: 0 5%;
+    border-radius: 10px;
+    box-shadow: 0 0 1em #999;
 }
 
 #mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
+    height: 400px;
+    width: 100%;
+    padding-bottom: 2%;
 }
 
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
+/* FOOTER 
+---------*/
+.lets-connect {
+    text-align: center;
+}
+
+/*social icons*/
+[class*="zocial-"]:before {
+    color: #222;
+    display: inline-block;
+    font-family: 'zocial', sans-serif;
+    text-shadow: 0px 2px 3px #555;
+    width: 2em;
+}
+
+[class*="zocial-"] {
+    color: #555 !important;
+    text-decoration: none;
+    margin: 10px 0;
     display: block;
-  }
+}
+
+.link:hover,
+.link:focus {
+    color: #555;
+    text-decoration: underline;
+}
+
+/* RESPONSIVE MEDIA QUERIES
+---------------------------*/
+/*wraps job description under name*/
+@media (max-width: 501px) {
+    .role {
+       display: flex;
+       flex-wrap: wrap;
+    }
+}
+
+/*Resize biopic*/
+@media only screen and (max-width:900px) {
+    .biopic {
+        width: 175px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .biopic {
+        width: 150px;
+    }
+
+    .welcome-message {
+        display: none;
+    }
+}
+
+/*biopic and skills list appear at 550px*/
+@media only screen and (min-width: 550px) {
+   .skills-h2,
+   .biopic {
+        display: block;
+    }
+}
+
+/*moves contact information into a different alignments*/
+@media only screen and (max-width: 520px) {
+    .contacts {
+        flex-direction: column;
+    }
+    
+/*makes location data wrap to next line*/
+    .date-text {
+        min-width: 300px;
+    }
+}
+
+@media only screen and (min-width: 706px) {
+    .contacts {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 781px) {
+    .contacts {
+        justify-content: space-between;
+    }
+
+    .flex-item {
+        min-width: 0px;
+    }
+}
+    
+
+/* MODALS: sets number of image columns */
+@media (max-width: 500px) {
+    .image-column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 350px) {
+    .image-column {
+        flex: 100%;
+        max-width: 100%;
+    }
 }

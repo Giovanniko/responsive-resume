@@ -1,86 +1,69 @@
 /*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
 These are HTML strings. As part of the course, you'll be using JavaScript functions to
 replace the %data% placeholder text you see in them.
 */
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr>';
+var HTMLheaderStart = '<div id="headStart" class="raised-font"></div>';
+var HTMLheaderName = '<h1 class="raised-font name">%data%</h1>';
+var HTMLheaderRole = '<span class="raised-font role">%data%</span><hr class="top-hr">';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLcontactGeneric = '<li class="flex-item"><span class="raised-font">%contact%</span><span class="raised-font">%data%</span></li>';
+var HTMLtopContacts = '<ul id="topContacts" class="flex-box contacts"></ul>';
+var HTMLmobile = '<li class="flex-item"><span class="raised-font">mobile</span><span class="raised-font">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><span class="raised-font">email</span><span class="raised-font">%data%</span></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="raised-font">twitter</span><span class="raised-font">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><span class="raised-font">github</span><span class="raised-font">%data%</span></li>';
+var HTMLblog = '<li class="flex-item"><span class="raised-font">blog</span><span class="raised-font">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="raised-font">location</span><span class="raised-font">%data%</span></li>';
 
-var HTMLbiopic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMessage = '<span class="welcome-message">%data%</span>';
+var HTMLbiopic = '<img src="%data%" class="biopic" alt="employee picture of choice">';
+var HTMLwelcomeMessage = '<span class="welcome-message raised-font">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskillsStart = '<h2 class="raised-font skills-h2">Skills at a Glance:</h2><ul id="skills" class="flex-column"></ul>';
+var HTMLskills = '<li class="flex-item"><span class="raised-font">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#" target="_blank">%data%';
+var HTMLworkEmployer = '<a class="link work-emp" href="#" target="_blank">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkDescription = '<p class="work-des">%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#" target="_blank">%data%</a>';
+var HTMLprojectTitle = '<a class="link proj-title" href="#" target="_blank">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectDescription = '<p class="proj-des">%data%</p>';
+var HTMLprojectImage = '<img src="%data%" class="modal-pictures" alt="project pictures">';
+
+/*Start of extra HTML added on for my particular project*/
+var HTMLcameraIcon  = '<img src="%data%" class="icon" alt="camera icon" title="Project screenshots" data-toggle="modal" data-target="#%project%">';
+var HTMLimageAnchor = '<a href="%data%" class="full-image" id="%imgAnchor%" target="_blank"></a>';//new
+var HTMLimageColumn = '<div class="image-column" id="%data%"></div>';
+/*End of extra HTML*/
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#" target="_blank">%data%';
-var HTMLschoolDegree = ' - %data%</a>';
+var HTMLschoolName = '<a class="link edu-school" href="#" target="_blank">%data%</a>';
+var HTMLschoolDegree = '<div class="edu-degree">%data%</div>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMajor = '<div class="edu-major">Major: %data%</div>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#" target="_blank">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineClasses = '<h2 class="embossed-title">Online Classes</h2>';
+var HTMLonlineTitle = '<a class="link edu-course" href="#" target="_blank">%data%</a>';
+var HTMLonlineSchool = '<div class="edu-school">%data%</div>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#" target="_blank">%data%</a>';
+var HTMLonlineURL = '<br><a class="link" href="#" target="_blank">%data%</a>';
 
-var internationalizeButton = '<button>Internationalize</button>';
-var googleMap = '<div id="map"></div>';
+var googleMap = '<div id="map" class="flex-box"></div>';
 
-var HTMLconnectFacebook = '<a href="%data%" class="zocial-facebook" target="_blank">Facebook</a>';
-var HTMLconnectLinkedin = '<a href="%data%" class="zocial-linkedin" target="_blank">Linked-in</a>';
-var HTMLconnectTwitter = '<a href="%data%" class="zocial-twitter" target="_blank">Twitter</a>';
+var HTMLconnectFacebook = '<a  href="%data%" class="zocial-facebook" target="_blank">Facebook</a>';
+var HTMLconnectLinkedin = '<a  href="%data%" class="zocial-linkedin" target="_blank">Linked-in</a>';
+var HTMLconnectTwitter = '<a  href="%data%" class="zocial-twitter" target="_blank">Twitter</a>';
 
-//Modal Attempt://
+var myIcon = './images/google-map-pointer-grey.svg';
 
-var HTMLprojectModal = '<h3>Test drop</h3>';//recent
+/*The next few lines about clicks are for the Collecting Click Locations quiz in the
+lesson Flow Control from JavaScript Basics.*/
 
-
-/*
-The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
-$(document).ready(function() {
-  $('button').click(function() {
-    var $name = $('#name');
-    var iName = inName($name.text()) || function(){};
-    $name.html(iName);
-  });
-});
-
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
-*/
 var clickLocations = [];
 
 function logClicks(x,y) {
@@ -95,18 +78,10 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   logClicks(loc.pageX, loc.pageY);
-  // your code goes here!
 });
 
-
-
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
+/*Google Map*/
 var map;    // declares a global map variable
-
 
 /*
 Start here! initializeMap() is called when page is loaded.
@@ -114,9 +89,137 @@ Start here! initializeMap() is called when page is loaded.
 function initializeMap() {
 
   var locations;
-    
+  
+  /*Options used to format the map in grey color scheme from
+  "https://snazzymaps.com/style/15/subtle-grayscale"*/  
   var mapOptions = {
-    disableDefaultUI: true, //no zoom or streetview icons.
+    disableDefaultUI: true,//no zoom or streetview icons.
+    styles:[
+              {
+                  "featureType": "administrative",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "saturation": "-100"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "administrative.province",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "visibility": "off"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "landscape",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "saturation": -100
+                      },
+                      {
+                          "lightness": 65
+                      },
+                      {
+                          "visibility": "on"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "poi",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "saturation": -100
+                      },
+                      {
+                          "lightness": "50"
+                      },
+                      {
+                          "visibility": "simplified"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "road",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "saturation": "-100"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "road.highway",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "visibility": "simplified"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "road.arterial",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "lightness": "30"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "road.local",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "lightness": "40"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "transit",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "saturation": -100
+                      },
+                      {
+                          "visibility": "simplified"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "water",
+                  "elementType": "geometry",
+                  "stylers": [
+                      {
+                          "hue": "#ffff00"
+                      },
+                      {
+                          "lightness": -25
+                      },
+                      {
+                          "saturation": -97
+                      }
+                  ]
+              },
+              {
+                  "featureType": "water",
+                  "elementType": "labels",
+                  "stylers": [
+                      {
+                          "lightness": -25
+                      },
+                      {
+                          "saturation": -100
+                      }
+                  ]
+              }
+            ]
+    
   };
 
   /*
@@ -133,31 +236,19 @@ function initializeMap() {
   
   function locationFinder() {
 
-    // initializes an empty array
     var locations = [];
-
-    // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
-    //console.log(bio.contacts.location);
-
-    // iterates through school locations and appends each location to
-    // the locations array. Note that forEach is used for array iteration
-    // as described in the Udacity FEND Style Guide:
-    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+    
+    // iterates through school locations and appends each location to the locations array.
     education.schools.forEach(function(school){
       locations.push(school.location);
-      //console.log(school.location);
     });
 
-    // iterates through work locations and appends each location to
-    // the locations array. Note that forEach is used for array iteration
-    // as described in the Udacity FEND Style Guide:
-    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+    // iterates through work locations and appends each location to the locations array.
     work.jobs.forEach(function(job){
       locations.push(job.location);
-      //console.log(job.location);
     });
-    console.log(locations);
+    console.log("Location List: " + locations);
     return locations;
   }
 
@@ -173,13 +264,26 @@ function initializeMap() {
     var lon = placeData.geometry.location.lng();  // longitude from the place service
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
-    //console.log(placeData);
-
+    
     // marker is an object with additional data about the pin for a single location
     var marker = new google.maps.Marker({
       map: map,
       position: placeData.geometry.location,
-      title: name
+      title: name,
+      //icon: 'http://labs.google.com/ridefinder/images/mm_20_gray.png'
+      icon: './images/mm_20_gray.png'
+      
+      //Other marker options could be:
+      /*{
+              path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+              scale:2,
+              strokeOpacity: 10
+      }*/
+
+      //'./images/google-map-greyoutline-marker-small.png'
+      //myIcon
+      //'http://labs.google.com/ridefinder/images/mm_20_gray.png'
+      
     });
 
     // infoWindows are the little helper windows that open when you click
@@ -189,21 +293,18 @@ function initializeMap() {
       content: name
     });
 
-    // hmmmm, I wonder what this is about...
-    google.maps.event.addListener(marker, 'click', function() {
+   google.maps.event.addListener(marker, 'click', function() {
       map.setZoom(6);
       map.setCenter(marker.getPosition());
       infoWindow.setContent('<h6>' + marker.title + '</h6>');
       infoWindow.open(map, marker);
     });
-
-    // this is where the pin actually gets added to the map.
-    // bounds.extend() takes in a map location object
-    bounds.extend(new google.maps.LatLng(lat, lon));
-    // fit the map to the new marker
-    map.fitBounds(bounds);
-    // center the map
-    map.setCenter(bounds.getCenter());
+    
+    bounds.extend(new google.maps.LatLng(lat, lon));// this is where the pin actually gets added to the map.
+                                                    // bounds.extend() takes in a map location object
+    map.fitBounds(bounds);// fit the map to the new marker
+    
+    map.setCenter(bounds.getCenter());// center the map
   }
 
   /*
@@ -253,10 +354,6 @@ function initializeMap() {
   pinPoster(locations);
 
 }
-
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
