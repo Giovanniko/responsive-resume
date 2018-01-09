@@ -136,10 +136,10 @@ var project = {
              "captions": []
 		},
 		{
-			"title": "Online Resume",
+			"title": "Responsive Resume",
 			"dates": "September 2017",
 			"description": "Use of javaScript objects and jQuery to build resume with encapsulated functions and an interactive map.",
-			"url": "https://github.com/Giovanniko/Responsive_Resume.git",
+			"url": "https://github.com/Giovanniko/Responsive-Resume.git",
 			"images": ["./images/ProjectImages/ResponsiveResume/ResponsiveResumeFull1366x675.png",
                        "./images/ProjectImages/ResponsiveResume/ResponsiveResumeModal2Column692x675.png",
                        "./images/ProjectImages/ResponsiveResume/ResponsiveResumeNewPageAnchor1358x760.png",
