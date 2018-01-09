@@ -36,7 +36,7 @@ var HTMLprojectImage = '<img src="%data%" class="modal-pictures" alt="project pi
 
 /*Start of extra HTML added on for my particular project*/
 var HTMLcameraIcon  = '<img src="%data%" class="icon" alt="camera icon" title="Project screenshots" data-toggle="modal" data-target="#%project%">';
-var HTMLimageAnchor = '<a href="%data%" class="full-image" id="%imgAnchor%" target="_blank"></a>';//new
+var HTMLimageAnchor = '<a href="%data%" class="full-image" id="%imgNumber%" target="_blank"></a>';//new
 var HTMLimageColumn = '<div class="image-column" id="%data%"></div>';
 /*End of extra HTML*/
 

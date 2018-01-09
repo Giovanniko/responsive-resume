@@ -160,7 +160,7 @@ var project = {
 			"url": "https://github.com/Giovanniko/Classic-Arcade-Game.git",
 			"images": ["./images/ProjectImages/ClassicArcade/WWWUnderConstrucion.jpg"],
             "captions": []
-		},
+		}
 	]
 };
 
@@ -211,7 +211,7 @@ work.display = function(){
 		$("#workExperience").append(HTMLworkStart);
 
 		var formattCompany = HTMLworkEmployer.replace("%data%", work.jobs[travail].employer);
-		var formattCompany = formattCompany.replace("#", work.jobs[travail].url);
+		formattCompany = formattCompany.replace("#", work.jobs[travail].url);
 		var formattPosition = HTMLworkTitle.replace("%data%", work.jobs[travail].title);
 		var formattWorkEntry = formattCompany + formattPosition;
 		$(".work-entry:last").append(formattWorkEntry);
@@ -223,7 +223,7 @@ work.display = function(){
 		$(".work-entry:last").append(formattDates);
 		$(".work-entry:last").append(formattLocation);
 		$(".work-entry:last").append(formattDescription);
-	};
+	}
 };
 work.display();
 
@@ -234,7 +234,7 @@ projects.display = function(){
 	for (var proj = 0; proj < project.projects.length; proj++) {
 		$("#projects").append(HTMLprojectStart);
 		var projectTitle = HTMLprojectTitle.replace("%data%", project.projects[proj].title);
-		var projectTitle = projectTitle.replace("#", project.projects[proj].url); 
+		projectTitle = projectTitle.replace("#", project.projects[proj].url); 
 		var projectDates = HTMLprojectDates.replace("%data%", project.projects[proj].dates);
 		var projectDescrip = HTMLprojectDescription.replace("%data%", project.projects[proj].description);
 		
@@ -252,26 +252,26 @@ projects.display = function(){
 		var projectId = "project" + proj;
 
 		var HTMLprojectModal = 
-			'<div class="modal fade" id="'+ projectId + '" tabindex="-1" role="dialog" aria-labelledby="'+ myModalLabel +'" aria-hidden="true">\
-			  <div class="modal-dialog">\
-				<div class="modal-content">\
-				  <div class="modal-header">\
-				  	<button type="button" class="close" data-dismiss="modal" aria-label="Close">\
-          				<span aria-hidden="true">&times;</span>\
-        			</button>\
-					<h4 class="modal-title" id="'+myModalLabel+'">'+ modalTitle +'</h4>\
-				  </div>\
-				  <div class="modal-body" id="'+modalBodyDescrip+'">\
-				  	<hr>\
-				  	<div class="modal-images" id="'+myModalImages+'">\
- 				  	</div>\
-				  </div>\
-				  <div class="modal-footer">\
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>\
-				  </div>\
-				</div>\
-			  </div>\
-			</div>';
+			 '<div class="modal fade" id="'+ projectId + '" tabindex="-1" role="dialog" aria-labelledby="'+ myModalLabel +'" aria-hidden="true">'+
+			   '<div class="modal-dialog">'+
+				'<div class="modal-content">'+
+				 '<div class="modal-header">'+
+				  	'<button type="button" class="close" data-dismiss="modal" aria-label="Close">'+
+          				'<span aria-hidden="true">&times;</span>'+
+        			'</button>'+
+					'<h4 class="modal-title" id="'+myModalLabel+'">'+ modalTitle +'</h4>'+
+				  '</div>'+
+				  '<div class="modal-body" id="'+modalBodyDescrip+'">'+
+				  	'<hr>'+
+				  	'<div class="modal-images" id="'+myModalImages+'">'+
+ 				  	'</div>'+
+				  '</div>'+
+				  '<div class="modal-footer">'+
+					'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+				  '</div>'+
+				'</div>'+
+			  '</div>'+
+			'</div>';
 		
 		$("#modals:last").append(HTMLprojectModal);
 		$("#modalBodyDescrip" + proj).prepend(projectDescrip);
@@ -293,18 +293,18 @@ projects.display = function(){
 			
 			//modal images attached:
 			var projectImg = HTMLprojectImage.replace("%data%", project.projects[proj].images[snap]);
-			var projectImg = projectImg.replace("%project%", projectId);
+			projectImg = projectImg.replace("%project%", projectId);
 			
 			//puts current fullsize image in anchor:
-			var ImgAnchor = HTMLimageAnchor.replace("%data%", project.projects[proj].images[snap]);//new
+			var imgAnchor = HTMLimageAnchor.replace("%data%", project.projects[proj].images[snap]);//new
 			
 			//make image Anchor id and attach to HTML:
 			totalSnaps = totalSnaps + 1;
-			var imgAnchor = "modal" + proj + "imgAnchor" + totalSnaps;
-			var ImgAnchor = ImgAnchor.replace("%imgAnchor%", imgAnchor);
+			var imgNumber = "modal" + proj + "imgNumber" + totalSnaps;
+			imgAnchor = imgAnchor.replace("%imgNumber%", imgNumber);
            
 			//used for code diagnostics:           
-            console.log("imgAnchor:" + imgAnchor);
+            console.log("imgNumber:" + imgNumber);
 			console.log("Snap count:" + snap);
 			
 			//gets index number of modal 
@@ -316,24 +316,25 @@ projects.display = function(){
 				console.log(myModalLabel);
 
 			/*TODO: turn the modal images into a masonry style layout*/
-         
+				var anchorGroup = 0;
+				var columnIndex = '';
                 //attaches Imgage Anchor to columns 1 to 4 in looping sequence:
                 if (totalSnaps < 5) {
-                	var anchorGroup = totalSnaps;
-                	var columnIndex = "Modal" + proj + "-column" + anchorGroup;
-                	$("#" + columnIndex).append(ImgAnchor);
+                	anchorGroup = totalSnaps;
+                	columnIndex = "Modal" + proj + "-column" + anchorGroup;
+                	$("#" + columnIndex).append(imgAnchor);
                 } else {
-                	var anchorGroup = totalSnaps-4;
-                	var columnIndex = "Modal" + proj + "-column" + anchorGroup;
-                	$("#" + columnIndex).append(ImgAnchor);
+                	anchorGroup = totalSnaps-4;
+                	columnIndex = "Modal" + proj + "-column" + anchorGroup;
+                	$("#" + columnIndex).append(imgAnchor);
                 }
                                             
-				$("#" + imgAnchor).append(projectImg);
+				$("#" + imgNumber).append(projectImg);
 				
-				console.log("HTMLimageAnchor appended:" + ImgAnchor);
+				console.log("HTMLimageAnchor appended:" + imgAnchor);
 				//console.log("Image appended:" + projectImg);
 			}
-		};
+		}
 	
 		var cameraIcon = HTMLcameraIcon.replace("%data%", "./images/device-camera.svg");
 		cameraIcon = cameraIcon.replace("%project%", projectId);
@@ -342,7 +343,7 @@ projects.display = function(){
 		$(".project-entry:last").append(projectDates);
 		$(".project-entry:last").append(projectDescrip);
 		$(".project-entry:last").append(cameraIcon);
-	};
+	}
 };
 projects.display();
 
@@ -367,11 +368,11 @@ education.display = function() {
 		$(".education-entry:last").append(schoolDates);
 		$(".education-entry:last").append(schoolLocation);
 		$(".education-entry:last").append(schoolMajor);
-	};
+	}
 	
 	$("#education").append(HTMLonlineClasses);
 	
-	for (curso in education.onlineCourses) {
+	for (var curso = 0; curso < education.onlineCourses.length; curso++) {
 
 		$("#education").append(HTMLschoolStart);
 
@@ -383,7 +384,7 @@ education.display = function() {
 		$(".education-entry:last").append(onlineTitle);
 		$(".education-entry:last").append(onlineSchool);
 		$(".education-entry:last").append(onlineDates);
-	};
+	}
 };
 education.display();
 
