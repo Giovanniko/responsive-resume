@@ -61,25 +61,6 @@ var HTMLconnectTwitter = '<a  href="%data%" class="zocial-twitter" target="_blan
 
 var myIcon = './images/google-map-pointer-grey.svg';
 
-/*The next few lines about clicks are for the Collecting Click Locations quiz in the
-lesson Flow Control from JavaScript Basics.*/
-
-var clickLocations = [];
-
-function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
-  console.log('x location: ' + x + '; y location: ' + y);
-}
-
-$(document).click(function(loc) {
-  logClicks(loc.pageX, loc.pageY);
-});
-
 /*Google Map*/
 var map;    // declares a global map variable
 
@@ -248,7 +229,6 @@ function initializeMap() {
     work.jobs.forEach(function(job){
       locations.push(job.location);
     });
-    console.log("Location List: " + locations);
     return locations;
   }
 

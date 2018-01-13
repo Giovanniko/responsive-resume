@@ -1,14 +1,17 @@
 /*OBJECT LITERAL INPUTS
 ----------------------*/
 
-var  bio = {
+var bio = {
 		"name": "Jonathan Koefman",
 		"role": "Web Developer",
 		"contacts": {
 			"mobile": "956 212 1070",
 			"email": "jkoefman@gmail.com",
 			"github": "Giovanniko",
-			"location": "Madrid, Spain"
+			"location": "Madrid, Spain",
+			"facebook": "https://www.facebook.com/jonathan.koefman",
+			"linkedin": "https://www.linkedin.com/in/koefman/",
+			"twitter": "https://www.twitter.com/etodapiei"
 			},
 		"welcomeMessage": "Would love to share ideas on exciting projects, drop me a line!",
 		"skills": ["Front-end Dev", "JavaScript", "Python", "Subsea Vehicles"],
@@ -49,24 +52,32 @@ var education = {
 		{
 			"name": "Cornell University",
 			"location": "Ithaca, NY",
-			"degree": ["Bachelor of Science", " Master of Engineering"],
-			"majors": ["Structural Engineering", " Project Management"],
+			"degree": " Master of Engineering",
+			"majors": " Project Management",
 			"dates": "2003 ",
+			"url": "https://www.cornell.edu"
+		},
+		{
+			"name": "Cornell University",
+			"location": "Ithaca, NY",
+			"degree": "Bachelor of Science",
+			"majors": "Structural Engineering",
+			"dates": "2002 ",
 			"url": "https://www.cornell.edu"
 		},
 		{
 			"name": "City College of New York",
 			"location": "New York, NY",
-			"degree": ["Transferred to Cornell"],
-			"majors": ["Computer Science"],
+			"degree": "Transferred to Cornell",
+			"majors": "Computer Science",
 			"dates": "2000 ",
 			"url": "https://www.ccny.cuny.edu"
 		},
 		{
 			"name": "LaGuardia Community College",
 			"location": "Queens, NY",
-			"degree": ["Associate of Arts"],
-			"majors": ["Liberal Arts and Social Sciences"],
+			"degree": "Associate of Arts",
+			"majors": "Liberal Arts and Social Sciences",
 			"dates": "1998 ",
 			"url": "https://www.laguardia.edu"
 		}
@@ -100,7 +111,7 @@ var education = {
 	]
 };
 
-var project = {
+var projects = {
 	"projects": [
 		{
 			"title": "Responsive Images",
@@ -164,12 +175,6 @@ var project = {
 	]
 };
 
-var connect = {
-	"facebook": "https://www.facebook.com/jonathan.koefman",
-	"linkedin": "https://www.linkedin.com/in/koefman/",
-	"twitter": "https://www.twitter.com/etodapiei"
-};
-
 /*Pls Note: all encapsulation for functions done with dot notation, 
 instead of directly in the object literals*/
 
@@ -182,7 +187,6 @@ bio.display = function(){
 	$("#headStart").append(HTMLheaderName.replace("%data%", bio.name));
 	$("#headStart").append(HTMLheaderRole.replace("%data%", bio.role));	
 	$("#header").append(HTMLtopContacts);
-	//$("#header").append(HTMLcontactGeneric.replace("%data%", "Contacts:"));
 
 	$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
 	$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
@@ -198,6 +202,15 @@ bio.display = function(){
       		$("#skills").append(HTMLskills.replace("%data%", bio.skills[j]));
     	}
   	}
+  	
+/* FOOTER
+---------*/
+	var socialFeet = function(){
+		$("#footerContacts").append(HTMLconnectFacebook.replace("%data%", bio.contacts.facebook));
+		$("#footerContacts").append(HTMLconnectLinkedin.replace("%data%", bio.contacts.linkedin));
+		$("#footerContacts").append(HTMLconnectTwitter.replace("%data%", bio.contacts.twitter));
+	};
+	socialFeet();
 };
 bio.display();
 
@@ -220,9 +233,7 @@ work.display = function(){
 		var formattLocation = HTMLworkLocation.replace("%data%", work.jobs[travail].location);
 		var formattDescription = HTMLworkDescription.replace("%data%", work.jobs[travail].description);
 	
-		$(".work-entry:last").append(formattDates);
-		$(".work-entry:last").append(formattLocation);
-		$(".work-entry:last").append(formattDescription);
+		$(".work-entry:last").append(formattDates,formattLocation,formattDescription);
 	}
 };
 work.display();
@@ -231,18 +242,15 @@ work.display();
 -----------------*/
 
 projects.display = function(){
-	for (var proj = 0; proj < project.projects.length; proj++) {
+	for (var proj = 0; proj < projects.projects.length; proj++) {
 		$("#projects").append(HTMLprojectStart);
-		var projectTitle = HTMLprojectTitle.replace("%data%", project.projects[proj].title);
-		projectTitle = projectTitle.replace("#", project.projects[proj].url); 
-		var projectDates = HTMLprojectDates.replace("%data%", project.projects[proj].dates);
-		var projectDescrip = HTMLprojectDescription.replace("%data%", project.projects[proj].description);
-		
-		console.log("Project Number: " + proj);
-		console.log('Image Array Length:' + project.projects[proj].images.length);
+		var projectTitle = HTMLprojectTitle.replace("%data%", projects.projects[proj].title);
+		projectTitle = projectTitle.replace("#", projects.projects[proj].url); 
+		var projectDates = HTMLprojectDates.replace("%data%", projects.projects[proj].dates);
+		var projectDescrip = HTMLprojectDescription.replace("%data%", projects.projects[proj].description);
 
 	/*Make parameters for modal*/	
-		var modalTitle = project.projects[proj].title;
+		var modalTitle = projects.projects[proj].title;
 		var myModalLabel = "myModalLabel" + proj;
 		var modalBodyDescrip =  "modalBodyDescrip" + proj;
 		
@@ -289,32 +297,26 @@ projects.display = function(){
 		and then attaches the anchor to one of the four columns made above */
 
 		var totalSnaps = 0;
-		for (var snap = 0; snap < project.projects[proj].images.length; snap++){
+		for (var snap = 0; snap < projects.projects[proj].images.length; snap++){
 			
 			//modal images attached:
-			var projectImg = HTMLprojectImage.replace("%data%", project.projects[proj].images[snap]);
+			var projectImg = HTMLprojectImage.replace("%data%", projects.projects[proj].images[snap]);
 			projectImg = projectImg.replace("%project%", projectId);
 			
 			//puts current fullsize image in anchor:
-			var imgAnchor = HTMLimageAnchor.replace("%data%", project.projects[proj].images[snap]);//new
+			var imgAnchor = HTMLimageAnchor.replace("%data%", projects.projects[proj].images[snap]);//new
 			
 			//make image Anchor id and attach to HTML:
 			totalSnaps = totalSnaps + 1;
 			var imgNumber = "modal" + proj + "imgNumber" + totalSnaps;
 			imgAnchor = imgAnchor.replace("%imgNumber%", imgNumber);
            
-			//used for code diagnostics:           
-            console.log("imgNumber:" + imgNumber);
-			console.log("Snap count:" + snap);
-			
 			//gets index number of modal 
 			var assignImg = myModalImages.charAt(myModalImages.length -1);
 			
 			//attaches image anchor and image to anchor only if same project and correct modal index
 			if (assignImg == proj) {
-				
-				console.log(myModalLabel);
-
+	
 			/*TODO: turn the modal images into a masonry style layout*/
 				var anchorGroup = 0;
 				var columnIndex = '';
@@ -330,19 +332,13 @@ projects.display = function(){
                 }
                                             
 				$("#" + imgNumber).append(projectImg);
-				
-				console.log("HTMLimageAnchor appended:" + imgAnchor);
-				//console.log("Image appended:" + projectImg);
 			}
 		}
 	
 		var cameraIcon = HTMLcameraIcon.replace("%data%", "./images/device-camera.svg");
 		cameraIcon = cameraIcon.replace("%project%", projectId);
 
-		$(".project-entry:last").append(projectTitle);
-		$(".project-entry:last").append(projectDates);
-		$(".project-entry:last").append(projectDescrip);
-		$(".project-entry:last").append(cameraIcon);
+		$(".project-entry:last").append(projectTitle,projectDates,projectDescrip,cameraIcon);
 	}
 };
 projects.display();
@@ -363,11 +359,7 @@ education.display = function() {
 		var schoolLocation = HTMLschoolLocation.replace("%data%", education.schools[scuola].location);
 		var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[scuola].majors);
 		
-		$(".education-entry:last").append(schoolName);
-		$(".education-entry:last").append(schoolDegree);
-		$(".education-entry:last").append(schoolDates);
-		$(".education-entry:last").append(schoolLocation);
-		$(".education-entry:last").append(schoolMajor);
+		$(".education-entry:last").append(schoolName,schoolDegree,schoolDates,schoolLocation,schoolMajor);
 	}
 	
 	$("#education").append(HTMLonlineClasses);
@@ -381,9 +373,7 @@ education.display = function() {
 		var onlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[curso].school);
 		var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[curso].dates);
 		
-		$(".education-entry:last").append(onlineTitle);
-		$(".education-entry:last").append(onlineSchool);
-		$(".education-entry:last").append(onlineDates);
+		$(".education-entry:last").append(onlineTitle,onlineSchool,onlineDates);
 	}
 };
 education.display();
@@ -391,18 +381,9 @@ education.display();
 /* GOOGLE MAP 
 -------------*/
 
-mapCreate = function(){
+var mapCreate = function(){
 	$("#mapDiv").append(googleMap);
 };
 mapCreate();
 /*TODO: add information to pop-ups when activating map pins*/
 
-/* FOOTER
----------*/
-
-socialFeet =function(){
-	$("#footerContacts").append(HTMLconnectFacebook.replace("%data%", connect.facebook));
-	$("#footerContacts").append(HTMLconnectLinkedin.replace("%data%", connect.linkedin));
-	$("#footerContacts").append(HTMLconnectTwitter.replace("%data%", connect.twitter));
-};
-socialFeet();
