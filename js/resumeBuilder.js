@@ -2,123 +2,123 @@
 ----------------------*/
 
 var bio = {
-		"name": "Jonathan Koefman",
-		"role": "Web Developer",
-		"contacts": {
-			"mobile": "956 212 1070",
-			"email": "jkoefman@gmail.com",
-			"github": "Giovanniko",
-			"location": "Madrid, Spain",
-			"facebook": "https://www.facebook.com/jonathan.koefman",
-			"linkedin": "https://www.linkedin.com/in/koefman/",
-			"twitter": "https://www.twitter.com/etodapiei"
+		name: "Jonathan Koefman",
+		role: "Web Developer",
+		contacts: {
+			mobile: "956 212 1070",
+			email: "jkoefman@gmail.com",
+			github: "Giovanniko",
+			location: "Madrid, Spain",
+			facebook: "https://www.facebook.com/jonathan.koefman",
+			linkedin: "https://www.linkedin.com/in/giovanniko",
+			twitter: "https://www.twitter.com/etodapiei"
 			},
-		"welcomeMessage": "Would love to share ideas on exciting projects, drop me a line!",
-		"skills": ["Front-end Dev", "JavaScript", "Python", "Subsea Vehicles"],
-		"biopic": "images/black-enso.jpg"
+		welcomeMessage: "Would love to share ideas on exciting projects, drop me a line!",
+		skills: ["Front-end Dev", "JavaScript", "Python", "Subsea Vehicles"],
+		biopic: "images/black-enso.jpg"
 };
 
 var work = {
-	"jobs": [
+	jobs: [
 		{
-		"employer": "Atlas Professionals",
-		"title": "Subsea Vehicles Engineer",
-		"location": "London, UK",
-		"dates": "2007 to 2017",
-		"description": "ROV subsea construction and survey",
-		"url": "https://www.atlasprofessionals.com"
+		employer: "Atlas Professionals",
+		title: "Subsea Vehicles Engineer",
+		location: "London, UK",
+		dates: "2007 to 2017",
+		description: "ROV subsea construction and survey",
+		url: "https://www.atlasprofessionals.com"
 		},
 		{
-		"employer": "Deep Ocean",
-		"title": "Subsea Vehicles Technician",
-		"location": "Stavanger, Norway",
-		"dates": "2007",
-		"description": "ROV subsea construction and survey",
-		"url": "https://www.deepocean.no"
+		employer: "Deep Ocean",
+		title: "Subsea Vehicles Technician",
+		location: "Stavanger, Norway",
+		dates: "2007",
+		description: "ROV subsea construction and survey",
+		url: "https://www.deepocean.no"
 		},
 		{
-		"employer": "Oceaneering",
-		"title": "Subsea Vehicles Pilot",
-		"location": "Ciudad del Carmen, Mexico",
-		"dates": "2006",
-		"description": "Subsea surveys",
-		"url": "https://www.oceaneering.com"
+		employer: "Oceaneering",
+		title: "Subsea Vehicles Pilot",
+		location: "Ciudad del Carmen, Mexico",
+		dates: "2006",
+		description: "Subsea surveys",
+		url: "https://www.oceaneering.com"
 		}
 	]
 };
 
 var education = {
-	"schools": [
+	schools: [
 		{
-			"name": "Cornell University",
-			"location": "Ithaca, NY",
-			"degree": " Master of Engineering",
-			"majors": " Project Management",
-			"dates": "2003 ",
-			"url": "https://www.cornell.edu"
+			name: "Cornell University",
+			location: "Ithaca, NY",
+			degree: "Master of Engineering",
+			majors: ["Project Management"],
+			dates: "2003 ",
+			url: "https://www.cornell.edu"
 		},
 		{
-			"name": "Cornell University",
-			"location": "Ithaca, NY",
-			"degree": "Bachelor of Science",
-			"majors": "Structural Engineering",
-			"dates": "2002 ",
-			"url": "https://www.cornell.edu"
+			name: "Cornell University",
+			location: "Ithaca, NY",
+			degree: "Bachelor of Science",
+			majors: ["Structural Engineering"],
+			dates: "2002 ",
+			url: "https://www.cornell.edu"
 		},
 		{
-			"name": "City College of New York",
-			"location": "New York, NY",
-			"degree": "Transferred to Cornell",
-			"majors": "Computer Science",
-			"dates": "2000 ",
-			"url": "https://www.ccny.cuny.edu"
+			name: "City College of New York",
+			location: "New York, NY",
+			degree: "Transferred to Cornell",
+			majors: ["Computer Science"],
+			dates: "2000 ",
+			url: "https://www.ccny.cuny.edu"
 		},
 		{
-			"name": "LaGuardia Community College",
-			"location": "Queens, NY",
-			"degree": "Associate of Arts",
-			"majors": "Liberal Arts and Social Sciences",
-			"dates": "1998 ",
-			"url": "https://www.laguardia.edu"
+			name: "LaGuardia Community College",
+			location: "Queens, NY",
+			degree: "Associate of Arts",
+			majors: ["Liberal Arts and Social Sciences"],
+			dates: "1998 ",
+			url: "https://www.laguardia.edu"
 		}
 	],
 
-	"onlineCourses": [
+	onlineCourses: [
 		{
-			"title": "Front-end Developer",
-			"school": "Udacity",
-			"dates": "Aug 2017",
-			"url": "https://classroom.udacity.com/nanodegrees/nd001/syllabus/core-curriculum"
+			title: "Front-end Developer",
+			school: "Udacity",
+			dates: "Aug 2017",
+			url: "https://classroom.udacity.com/nanodegrees/nd001/syllabus/core-curriculum"
 		},
 		{
-			"title": "Intro to Inferencial Statistics",
-			"school": "Udacity",
-			"dates": "June 2017",
-			"url": "https://classroom.udacity.com/courses/ud201"
+			title: "Intro to Inferencial Statistics",
+			school: "Udacity",
+			dates: "June 2017",
+			url: "https://classroom.udacity.com/courses/ud201"
 		},
 		{
-			"title": "Intro to Descriptive Statistics",
-			"school": "Udacity",
-			"dates": "July 2017",
-			"url": "https://classroom.udacity.com/courses/ud827"
+			title: "Intro to Descriptive Statistics",
+			school: "Udacity",
+			dates: "July 2017",
+			url: "https://classroom.udacity.com/courses/ud827"
 		},
 		{
-			"title": "Intro to Computer Science",
-			"school": "Udacity",
-			"dates": "May 2017",
-			"url": "https://classroom.udacity.com/courses/cs101"
+			title: "Intro to Computer Science",
+			school: "Udacity",
+			dates: "May 2017",
+			url: "https://classroom.udacity.com/courses/cs101"
 		}
 	]
 };
 
 var projects = {
-	"projects": [
+	projects: [
 		{
-			"title": "Responsive Images",
-			"dates": "August 2017",
-			"description": "Use of responsive design and media queries to reformat elements for various screen sizes.",
-			"url": "https://github.com/Giovanniko/Responsive-Images-Tables.git",
-			"images": ["./images/ProjectImages/NaplesTimes/NaplesTimes-FullPage1117x1273.png",
+			title: "Responsive Images",
+			dates: "August 2017",
+			description: "Use of responsive design and media queries to reformat elements for various screen sizes.",
+			url: "https://github.com/Giovanniko/Responsive-Images-Tables.git",
+			images: ["./images/ProjectImages/NaplesTimes/NaplesTimes-FullPage1117x1273.png",
                        "./images/ProjectImages/NaplesTimes/NaplesTimes-699x626.png",
                        "./images/ProjectImages/NaplesTimes/NaplesTimes-699x1499.png",
                        "./images/ProjectImages/NaplesTimes/NaplesTimes-549x626.png",
@@ -131,27 +131,27 @@ var projects = {
                        "./images/ProjectImages/NaplesTimes/NaplesTimesNoNav-355x2335.png"
                
 			 ],
-			 "captions": []//TODO: display information about each image as a 
+			 captions: []//TODO: display information about each image as a 
 			 			   //semi-transparent box and for use as an alt="" text.
 		},
 		{
-			"title": "Portfolio",
-			"dates": "August 2017",
-			"description": "Use of art direction techniques and speed optimization",
-			"url": "https://github.com/Giovanniko/Portfolio-Site.git",
-			"images": ["./images/ProjectImages/Portfolio/PortfolioFull1366x2276.png",
+			title: "Portfolio",
+			dates: "August 2017",
+			description: "Use of art direction techniques and speed optimization",
+			url: "https://github.com/Giovanniko/Portfolio-Site.git",
+			images: ["./images/ProjectImages/Portfolio/PortfolioFull1366x2276.png",
                        "./images/ProjectImages/Portfolio/PortfolioModal1125x675.png",
                        "./images/ProjectImages/Portfolio/Portfolio495x1174.png",
                        "./images/ProjectImages/Portfolio/Portfolio-iphone6-375x667.png"
              		  ],
-             "captions": []
+             captions: []
 		},
 		{
-			"title": "Responsive Resume",
-			"dates": "September 2017",
-			"description": "Use of javaScript objects and jQuery to build resume with encapsulated functions and an interactive map.",
-			"url": "https://github.com/Giovanniko/Responsive-Resume.git",
-			"images": ["./images/ProjectImages/ResponsiveResume/ResponsiveResumeFull1366x675.png",
+			title: "Responsive Resume",
+			dates: "September 2017",
+			description: "Use of javaScript objects and jQuery to build resume with encapsulated functions and an interactive map.",
+			url: "https://github.com/Giovanniko/Responsive-Resume.git",
+			images: ["./images/ProjectImages/ResponsiveResume/ResponsiveResumeFull1366x675.png",
                        "./images/ProjectImages/ResponsiveResume/ResponsiveResumeModal2Column692x675.png",
                        "./images/ProjectImages/ResponsiveResume/ResponsiveResumeNewPageAnchor1358x760.png",
                        "./images/ProjectImages/ResponsiveResume/ResponsiveResumeModalfull899x675.png",
@@ -162,15 +162,15 @@ var projects = {
                        "./images/ProjectImages/ResponsiveResume/ResponsiveResumeModal1ColumnFull405x5965.png",
                        "./images/ProjectImages/ResponsiveResume/ResponsiveResumeModal2ColumnFull675x3649.png"
                        ],
-            "captions": []
+            captions: []
 		},
 		{
-			"title": "Classic Arcade Game",
-			"dates": "October 2017",
-			"description": "Use of visual assets and a game loop engine.",
-			"url": "https://github.com/Giovanniko/Classic-Arcade-Game.git",
-			"images": ["./images/ProjectImages/ClassicArcade/WWWUnderConstrucion.jpg"],
-            "captions": []
+			title: "Classic Arcade Game",
+			dates: "October 2017",
+			description: "Use of visual assets and a game loop engine.",
+			url: "https://github.com/Giovanniko/Classic-Arcade-Game.git",
+			images: ["./images/ProjectImages/ClassicArcade/WWWUnderConstrucion.jpg"],
+            captions: []
 		}
 	]
 };
