@@ -8,30 +8,30 @@ var bio = {
 			mobile: "956 212 1070",
 			email: "jkoefman@gmail.com",
 			github: "Giovanniko",
-			location: "Madrid, Spain",
+			location: "Estero, Florida",
 			facebook: "https://www.facebook.com/jonathan.koefman",
 			linkedin: "https://www.linkedin.com/in/giovanniko",
 			twitter: "https://www.twitter.com/etodapiei"
 			},
 		welcomeMessage: "Would love to share ideas on exciting projects, drop me a line!",
-		skills: ["Front-end Dev", "JavaScript", "Python", "Subsea Vehicles"],
+		skills: ["Python", "Data Analysis", "Machine Learning", "Subsea Vehicles"],
 		biopic: "images/black-enso.jpg"
 };
 
 var work = {
 	jobs: [
 		{
-		employer: "Atlas Professionals",
+		employer: "Zattera Inc and Agencies",
 		title: "Subsea Vehicles Engineer",
 		location: "London, UK",
-		dates: "2007 to 2017",
+		dates: "2007 to Present",
 		description: "ROV subsea construction and survey",
 		url: "https://www.atlasprofessionals.com"
 		},
 		{
 		employer: "Deep Ocean",
 		title: "Subsea Vehicles Technician",
-		location: "Stavanger, Norway",
+		location: "Ciudad del Carmen, Mexico",
 		dates: "2007",
 		description: "ROV subsea construction and survey",
 		url: "https://www.deepocean.no"
